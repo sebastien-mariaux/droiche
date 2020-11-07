@@ -18,6 +18,9 @@ class Subject(Base):
         self.far_left_count = 0
         self.far_right_count = 0
 
+    def __repr__(self):
+        return self.content
+
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 

@@ -5,6 +5,5 @@ from models import Subject
 app = Flask(__name__)
 app.config["DEBUG"] = True
 CORS(app)
-breakpoint()
 
 import routes

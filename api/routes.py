@@ -27,7 +27,7 @@ session = SessionLocal()
 @app.route("/subjects/<subject_id>/vote/", methods=['POST'])
 def vote(subject_id):
     subject = session.query(Subject).get(subject_id)
-    vote = request.form['vote']
+    vote = request.get_json()['vote']
     if vote == 'left':
         subject.left_count += 1
     elif vote == 'right':
@@ -35,7 +35,7 @@ def vote(subject_id):
     elif vote == 'far_left':
         subject.far_left_count += 1
     elif vote == 'far_right':
-        subject.far_right += 1
+        subject.far_right_count += 1
     session.commit()
 
     return subject.as_dict()
