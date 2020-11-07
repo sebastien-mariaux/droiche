@@ -1,41 +1,21 @@
 <template>
-  
   <div id="app">
-    <h1>Droiche</h1>
-    <div class="row">
-      <div class="col-md-4">
-        <SubjectsList />
-      </div>
-      <div class="col-md-4">
-        <!-- display topic -->
-      </div>
-      <div class="col-md-4">
-        <CreateSubject />
-      </div> 
-    </div>
+    <header>
+      <h1>Droiche</h1>
+    </header>
+    <section class="vote">
+      <Vote />
+    </section>
   </div>
 </template>
 
 <script>
-  import CreateSubject from './components/CreateSubject.vue'
-  import SubjectsList from './components/SubjectsList.vue'
+  import Vote from './components/Vote.vue'
 
   export default {
     name: 'App',
     components: {
-      CreateSubject,
-      SubjectsList,
+      Vote,
     }
   }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
