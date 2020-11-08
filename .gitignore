@@ -1,0 +1,29 @@
+/api/__pycache__/*
+*.db
+api/droiche.db
+
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+/api/alembic/__pycache__/*
+/api/alembic/versions/__pycache__/*
