@@ -21,7 +21,6 @@
 }
 
 header {
-  height: 100px;
   background-color: royalblue;
   color: #fff;
   padding: 2em;
@@ -70,13 +69,27 @@ section.vote .actions .btn p {
   text-align: center;
 }
 
+/* section.results {
+  background-color: grey;
+} */
+
 section.results h2 {
+  text-align: center;
+  font-size: 16px;
+}
+section.results p {
   text-align: center;
   font-size: 16px;
 }
 section.results .graph {
   height: 50px;
   display: flex;
+  color: #fff;
+  text-align: center;
+}
+
+section.results .graph .results {
+  padding: 0.1em;
 }
 
 section.results .graph .results.far-right {

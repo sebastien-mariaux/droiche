@@ -1,24 +1,25 @@
 <template>
   <div v-if="this.$store.state.previousSubject.content">
     <h2>De source sûre, {{ this.$store.state.previousSubject.content }}, c'est :</h2>
+    <p>{{ this.$store.getters.winner }}</p>
     <div class="display">
       
       <div class='graph'>
         <div class="far-left results"
              v-bind:style="{ flex: this.$store.state.previousSubject.far_left_count}">
-          <p>{{ this.$store.state.previousSubject.far_left_count }}</p>
+          <p>{{ this.$store.getters.previousPercentage('far_left_count')}}%</p>
         </div>
         <div class="left results"
              v-bind:style="{ flex: this.$store.state.previousSubject.left_count}">
-          <p>{{ this.$store.state.previousSubject.left_count }}</p>
+          <p>{{ this.$store.getters.previousPercentage('left_count')}}%</p>
         </div>
         <div class="right results"
              v-bind:style="{ flex: this.$store.state.previousSubject.right_count}">
-          <p>{{ this.$store.state.previousSubject.right_count }}</p>
+          <p>{{ this.$store.getters.previousPercentage('right_count')}}%</p>
         </div>
         <div class="far-right results"
              v-bind:style="{ flex: this.$store.state.previousSubject.far_right_count}">
-          <p>{{ this.$store.state.previousSubject.far_right_count }}</p>
+          <p>{{ this.$store.getters.previousPercentage('far_right_count')}}%</p>
         </div>
       </div>
     </div>

@@ -13,7 +13,53 @@ export default new Vuex.Store({
     previousSubject: [],
     urlRoot: 'http://localhost:5000/',
   },
-  getters: {},
+  getters: {
+    totalVote: () => (subject) => {
+      return subject.far_left_count + subject.left_count+ 
+      subject.right_count + subject.far_right_count
+    },
+    previousPercentage: (state, getters) => ( orientation) => {
+      return getters.percentage(state.previousSubject, orientation)
+    },
+    percentage: (state, getters) => (subject, orientation) => {
+      return Math.round(subject[orientation] / 
+             getters.totalVote(subject) * 100)
+    },
+    maxVote: () => (subject) =>  {
+      return Math.max(subject.far_left_count, subject.left_count, 
+                      subject.right_count, subject.far_right_count)
+    },
+    winner: (state, getters) => {
+      let winner = "";
+      ['far_left_count', 'left_count', 
+       'right_count', 'far_right_count'].forEach( function(side) {
+                if (state.previousSubject[side] == getters.maxVote(state.previousSubject))  {
+                  if (winner.length) { winner = 'unclear' } else { winner = side }
+                }
+              })
+      return getters.mapWinner(winner);
+    },
+    mapWinner: () => (winner) => {
+      let text = "";
+      switch(winner) {
+        case 'far_left_count':
+          text = "d'extrême gauche !"
+          break;
+        case 'left_count':
+          text = "de gauche !"
+          break;
+        case 'right_count':
+          text = "de droite !"
+          break;
+        case 'far_right_count':
+          text = "d'extrême droite !"
+          break;
+        default: 
+          text = 'indeterminé...'
+      } 
+      return text;
+    }
+  },  
   mutations: {
     subject(state, payload) {
       state.subject = payload;

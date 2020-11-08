@@ -2,7 +2,7 @@
   <div class="container">
     <header>
       <h1>Droiche</h1>
-      <p>Un sous titre à trouver...</p>
+      <p>Ne pas faire de politique, c'est de droite.</p>
     </header>
     <div id="app">
       <section class="vote">
