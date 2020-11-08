@@ -12,6 +12,10 @@ export default new Vuex.Store({
     subject: [],
     previousSubject: [],
     urlRoot: 'http://localhost:5000/',
+    thumbs: {
+      isUpSelected: false,
+      isDownSelected: false,
+    }
   },
   getters: {
     totalVote: () => (subject) => {
@@ -38,6 +42,11 @@ export default new Vuex.Store({
                 }
               })
       return getters.mapWinner(winner);
+    },
+    currentThumb: (state) => () => {
+      if (state.thumbs.isUpSelected) { return 'up' }
+      if (state.thumbs.isDownSelected) { return 'down' }
+      return null ;
     },
     mapWinner: () => (winner) => {
       let text = "";
@@ -66,6 +75,16 @@ export default new Vuex.Store({
     },
     previousSubject(state, payload) {
       state.previousSubject = payload;
+      state.thumbs.isDownSelected = false;
+      state.thumbs.isUpSelected = false;
+    },
+    thumbsUp(state) {
+      state.thumbs.isUpSelected = true;
+      state.thumbs.isDownSelected = false;
+    },
+    thumbsDown(state) {
+      state.thumbs.isUpSelected = false;
+      state.thumbs.isDownSelected = true;
     }
   },
   actions: {
@@ -82,6 +101,26 @@ export default new Vuex.Store({
         .then(function (response) {
           commit("previousSubject", response.data);
           dispatch("getSubject");
+        })
+        .catch(error => console.log(error))
+    },
+    thumbsUp({state, commit, getters}) {
+      let url = `${state.urlRoot}subjects/${state.previousSubject.id}/thumbs/`;
+      axios
+        .post(url, {'thumb': 'up', 'previous_thumb': getters.currentThumb()})
+        .then(function (response) {
+          commit("previousSubject", response.data);
+          commit("thumbsUp")
+        })
+        .catch(error => console.log(error))
+    },
+    thumbsDown({state, commit, getters}) {
+      let url = `${state.urlRoot}subjects/${state.previousSubject.id}/thumbs/`;
+      axios
+        .post(url, {'thumb': 'down', 'previous_thumb': getters.currentThumb()})
+        .then(function (response) {
+          commit("previousSubject", response.data);
+          commit("thumbsDown")
         })
         .catch(error => console.log(error))
     },

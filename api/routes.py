@@ -45,3 +45,14 @@ def vote(subject_id):
 def random_subject():
     subject = session.query(Subject).order_by(func.random()).first()
     return subject.as_dict()
+
+
+@app.route("/subjects/<subject_id>/thumbs/", methods=["POST"])
+def thumbs(subject_id):
+    thumb = request.get_json().get('thumb')
+    previous_thumb = request.get_json().get('previous_thumb')
+    subject = session.query(Subject).get(subject_id)
+    subject.thumbs(thumb, previous_thumb)
+    return subject.as_dict()
+
+    

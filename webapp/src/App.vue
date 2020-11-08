@@ -1,17 +1,12 @@
+
 <template>
-  <div class="container">
-    <header>
-      <h1>Droiche</h1>
-      <p>Ne pas faire de politique, c'est de droite.</p>
-    </header>
-    <div id="app">
-      <section class="vote">
-        <Vote />
-      </section>
-      <section class="results">
-        <Results />
-      </section>
-    </div>
+  <div id="app">
+    <section class="vote">
+      <Vote />
+    </section>
+    <section class="results">
+      <Results />
+    </section>
   </div>
 </template>
 

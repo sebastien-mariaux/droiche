@@ -14,6 +14,13 @@
   background-color: purple;
   color: #fff;
 } */
+.red {
+  color: #bb0000;
+}
+
+.blue  {
+  color: #0066CC;
+}
 
 .container {
   margin: auto;
@@ -77,37 +84,43 @@ section.results h2 {
   text-align: center;
   font-size: 16px;
 }
-section.results p {
-  text-align: center;
-  font-size: 16px;
-}
+
 section.results .graph {
   height: 50px;
   display: flex;
   color: #fff;
   text-align: center;
 }
-
-section.results .graph .results {
+section.results p {
+  text-align: center;
+  font-size: 16px;
+}
+section.results .graph .data {
   padding: 0.1em;
 }
 
-section.results .graph .results.far-right {
+section.results .graph .data.far-right {
   background-color: #0D378A;
   flex: 1;
 }
 
-section.results .graph .results.right {
+section.results .graph .data.right {
   background-color: #0066CC;
   flex: 1;
 }
 
-section.results .graph .results.left {
+section.results .graph .data.left {
   background-color: #FF8080;
   flex: 1;
 }
 
-section.results .graph .results.far-left {
+section.results .graph .data.far-left {
   background-color: #bb0000;
   flex: 1;
+}
+
+section.results .details {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
 }
