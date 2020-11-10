@@ -11,7 +11,7 @@ export default new Vuex.Store({
   state: {
     subject: [],
     previousSubject: [],
-    urlRoot: 'http://localhost:5000/',
+    urlRoot: process.env.VUE_APP_API_URL,
     thumbs: {
       isUpSelected: false,
       isDownSelected: false,
@@ -89,6 +89,7 @@ export default new Vuex.Store({
   },
   actions: {
     getSubject({ commit, state }) {
+      console.log(typeof(state.urlRoot))
       axios
         .get(`${state.urlRoot}subjects/random/`)
         .then(response => commit("subject", response.data))
