@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>« {{ this.$store.state.subject.content }} »</h2>
-    <p> C'est...</p>
+    <p> <i>C'est...</i></p>
     <div class="omega actions">
       <div v-on:click="sendVote('far_left')" 
            class="btn far-left btn-primary btn-sm">
@@ -20,6 +20,7 @@
         <p>D'extrême droite</p>
       </div>
     </div>
+    <hr />
   </div>
 </template>
 
