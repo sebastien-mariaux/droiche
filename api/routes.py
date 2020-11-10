@@ -41,9 +41,19 @@ def vote(subject_id):
     return subject.as_dict()
 
 
-@app.route("/subjects/random/", methods=["GET"])
+@app.route("/subjects/random/", methods=["GET", "POST"])
 def random_subject():
-    subject = session.query(Subject).order_by(func.random()).first()
+    try:
+        exclude = [int(id) for id in request.get_json()['exclude'] if id.isnumeric()]
+    except AttributeError:
+        exclude = []
+
+    print(exclude)
+    subject = (session.query(Subject)
+                    .filter(~Subject.id.in_(exclude))
+                    .order_by(func.random()).first())
+    if subject is None: 
+        return { 'error': 'no more subjects available!'}
     return subject.as_dict()
 
 

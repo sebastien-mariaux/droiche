@@ -7,6 +7,34 @@ import VueAxios from 'vue-axios'
 Vue.use(Vuex);
 Vue.use(VueAxios, axios)
 
+var readListCookie = function() {
+  if (window.$cookies.isKey('subjectIds') ) {
+    return window.$cookies.get('subjectIds');
+  }
+  return ''
+}
+
+var setListCookie = function(id) {
+  let currentlist = readListCookie(); 
+  console.log(currentlist)
+  let newList;
+  if (currentlist.length) { 
+    newList = `${currentlist},${id}`;        
+  } else {
+    newList = id;
+  }
+  window.$cookies.set('subjectIds', newList);
+}
+
+var handleSubject = function(response, commit) {
+  if (response.data['error']) {
+    window.$cookies.remove('subjectIds');
+    return
+  } 
+  commit("subject", response.data);
+  setListCookie(response.data.id);
+}
+
 export default new Vuex.Store({
   state: {
     subject: [],
@@ -67,7 +95,7 @@ export default new Vuex.Store({
           text = 'indeterminé...'
       } 
       return text;
-    }
+    },
   },  
   mutations: {
     subject(state, payload) {
@@ -89,10 +117,9 @@ export default new Vuex.Store({
   },
   actions: {
     getSubject({ commit, state }) {
-      console.log(typeof(state.urlRoot))
       axios
-        .get(`${state.urlRoot}subjects/random/`)
-        .then(response => commit("subject", response.data))
+        .post(`${state.urlRoot}subjects/random/`, {exclude: readListCookie().split(',')})
+        .then(response => handleSubject(response, commit))
         .catch(error => console.log(error))
     },
     sendVote({ commit, state, dispatch }, payload) {
