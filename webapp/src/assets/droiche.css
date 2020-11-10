@@ -30,18 +30,20 @@
 header {
   background-color: royalblue;
   color: #fff;
-  padding: 2em;
+  padding: 1em;
   margin-bottom: 10%;
 }
 
 header h1 {
   margin: 0;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 header p {
-  font-size: 20px;
+  font-size: 16px;
   font-style: italic;
+  padding:0;
+  margin: 0;
 }
 
 section.vote {
@@ -50,13 +52,13 @@ section.vote {
 
 section.vote h2 {
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 section.vote p {
   text-align: center;
   font-size: 20px;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 
@@ -74,6 +76,9 @@ section.vote .actions .btn {
 }
 section.vote .actions .btn p {
   text-align: center;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+  font-size: 16px;
 }
 
 /* section.results {

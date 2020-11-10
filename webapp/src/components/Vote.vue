@@ -4,7 +4,7 @@
     <p> C'est...</p>
     <div class="omega actions">
       <div v-on:click="sendVote('far_left')" 
-           class="btn far-left btn-primary">
+           class="btn far-left btn-primary btn-sm">
         <p>D'extrême gauche</p>
       </div>
       <div v-on:click="sendVote('left')" 
