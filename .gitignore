@@ -27,3 +27,8 @@ pnpm-debug.log*
 *.swp
 /api/alembic/__pycache__/*
 /api/alembic/versions/__pycache__/*
+
+
+# Nginx / server 
+api/index.html
+webapp/dist/*
