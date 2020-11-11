@@ -16,7 +16,6 @@ var readListCookie = function() {
 
 var setListCookie = function(id) {
   let currentlist = readListCookie(); 
-  console.log(currentlist)
   let newList;
   if (currentlist.length) { 
     newList = `${currentlist},${id}`;        
