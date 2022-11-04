@@ -36,6 +36,25 @@ initial_subjects = [
     "Voyager en camping-car",
     "Râler parce qu'on paye trop d'impôts",
     "Porter une cravate même le week-end",
+    "Twitter",
+    "Les cryptomonnaies",
+    "Miner du Bitcoin à l'énergie solaire",
+    "Le vélotaf",
+    "Le cinéma français",
+    "Un barbecue vegan",
+    "Porter la moustache",
+    "Regarder un documentaire sur Karl Marx sur Amazon Prime",
+    "Le revenu universel",
+    "Utiliser le 49.3 pour faire passer la hausse du SMIC",
+    "Les chaussettes dans les sandales",
+    "Le Père Noël",
+    "Être neutre politiquement",
+    "L'objectivité journalistique",
+    "La télévision",
+    "L'élevage de chats",
+    "Mary Poppins",
+    "La pensée complexe",
+    "Le débat \"Pain au chocolat\" VS \"Chocolatine\"",
 ]
 
 
@@ -51,6 +70,11 @@ def create_subjects(subjects: list) -> None:
 def list_subjects():
     for subject in session.query(Subject).all():
         print(subject.content)
+
+def remove_subject(content):
+    subject = session.query(Subject).filter_by(content=content)
+    if subject:
+        subject.delete()
 
 
 def reset_data():
