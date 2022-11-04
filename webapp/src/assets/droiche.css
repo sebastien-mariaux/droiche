@@ -149,3 +149,10 @@ footer a {
   color: #fff;
   /* text-decoration: none; */
 }
+
+footer .icon-link {
+  color: #fff; 
+  font-size: 25px; 
+  text-decoration: none; 
+  margin: 0.5em;
+}
