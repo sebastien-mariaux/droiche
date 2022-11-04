@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>Droiche - C'est de droite ou de gauche ?</title>
-    <script src="https://kit.fontawesome.com/c1e6466854.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>Droiche - C'est de droite ou de gauche ?</title>
+  <script src="https://kit.fontawesome.com/c1e6466854.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <header>
     <div class="container">
-      <header>
         <h1>Droiche</h1>
-        <p>Ne pas faire de politique, c'est de droite.</p>
-      </header>
-      <div id="app"></div>
+      <p>Ne pas faire de politique, c'est de droite.</p>
     </div>
-    <footer>
-      
-      <a class="icon-link" alt='github repository' title='Github' href="https://github.com/sebastien-mariaux/droiche"><i class="fab fa-github"></i>  </a>
-      <a class="icon-link" alt='site perso' title='Mon site' href="http://sebastien-mariaux.com"><i class="fas fa-external-link-alt"></i>  </a>
-    </footer>
-  </body>
+  </header>
+  <div class="container">
+    <div id="app"></div>
+  </div>
+  <footer>
+
+    <a class="icon-link" alt='github repository' title='Github' href="https://github.com/sebastien-mariaux/droiche"><i
+        class="fab fa-github"></i> </a>
+    <a class="icon-link" alt='site perso' title='Mon site' href="http://sebastien-mariaux.com"><i
+        class="fas fa-external-link-alt"></i> </a>
+  </footer>
+</body>
+
 </html>
